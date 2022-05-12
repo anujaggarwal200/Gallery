@@ -1,0 +1,24 @@
+<h1 class="text-center">Albums</h1>
+<div class="container text-center">
+  <% if @album.image.attached? %>
+  <% @album.image.each do|images|%>
+      <div class="card m-3 ", style="display:inline-flex; width:19rem; background-color: #4D774E ;">
+        <%= link_to image_tag(images, :size => "300x300", :crop => :fill), images, target: :blank%>   
+        <% if @album.user == current_user%>
+          <%= button_to "Delete image",purge_image_album_path(images),class: "btn my-2 ",style: "background-color:#f1b24a", method: :delete%>
+        <% end %>
+      </div>
+    <% end%>
+  <%end%>
+</div><hr>
+<div class="text-center">
+    <% if @album.user == current_user%>
+    <h3>Want to edit in the Album</h3>
+    <%= link_to "Edit", edit_album_path(@album),class:"btn btn-lg btn-primary" %>
+    <%= link_to "Destroy", album_path(@album), data: {
+                      turbo_method: :delete,
+                      turbo_confirm: "Are you sure?"
+                    },class:"btn btn-lg btn-danger" %>
+
+    <% end %>
+</div>

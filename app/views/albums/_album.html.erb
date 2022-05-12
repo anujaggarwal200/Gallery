@@ -1,0 +1,46 @@
+<div class="card m-3 text-center text-light" style="display: inline-block; width: 20rem; border-bottom-right-radius: 2rem; border-top-left-radius: 2rem; background-color:#164A41; color: #F1B24A;">
+  <% if album.cover_image.attached? %>
+    <div class="m-3">
+      <%= link_to image_tag(album.cover_image, :size => "250x250", :crop => :fill),album%>
+    </div>
+    <p>
+      <strong>Name:</strong>
+      <%= album.name %>
+    </p>
+    <p>
+      <strong>Description:</strong>
+      <%= album.description %>
+    </p>
+
+    <p>
+      <strong>Price:</strong>
+      <%= album.price %>
+    </p>
+    
+    <p>
+      <strong>All Tags:</strong>
+      <%= album.all_tags %>
+    </p>
+
+      <%= link_to "Show this album", album, class:"btn m-2  ", style: "background-color:#F1B24A;" %>
+    <% else %>
+    <p>
+      <strong>Name:</strong>
+      <%= album.name %>
+    </p>
+    <p>
+      <strong>Description:</strong>
+      <%= album.description %>
+    </p>
+
+    <p>
+      <strong>Price:</strong>
+      <%= album.price %>
+    </p>
+
+      <%= link_to "Show this album", album, class:"btn m-2", style: "background-color:#F1B24A;" %>
+
+    <%end%>
+</div>
+
+

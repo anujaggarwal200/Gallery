@@ -1,0 +1,21 @@
+<h1 class="text-center mt-3">Albums</h1>
+<div class="container text-center">
+<div id="albums" class="container text-center border my-5"style="background-color:#4d774e">
+  <h2 class="my-3">My Published Albums </h2><hr>
+    <% @published_albums.each do |album| %>
+      <%= render album %>
+    <% end %>
+
+</div>
+
+<div id="albums" class="container text-center border" style="background-color:#4d774e">
+  <h2 class="my-3">My Unpublished Albums </h2><hr>
+    <% @unpublished_albums.each do |album| %>
+      <%= render album %>
+    <% end %>
+    
+</div>
+
+
+
+

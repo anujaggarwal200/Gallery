@@ -1,0 +1,31 @@
+<h1 class="text-center">Albums</h1>
+  <div class="row justify-content-center ">
+    <div class="col-lg-6">
+      <%= search_form_for @q||@q1, url: :root do |f| %>
+      <div class="d-flex">
+        <%= f.search_field :tags_tagname_cont, placeholder:"Search by tags only" ,class: "form-control d-inline-block" %>
+        <%= f.submit "Search", class: "btn mx-2",style:"background-color:#F1B24A" %>
+        <% end %>  
+      </div> 
+    </div>
+  </div>
+
+  <div id="albums" class="text-center">
+    <%if user_signed_in?%>
+    <% @published_albums.each do |album| %>
+      <%= render album %>
+    <% end %>
+
+    <% @unpublished_albums.each do |album| %>
+      <%= render album %>
+    <% end %>
+
+    <%else%>
+    <% @published_albums.each do |album| %>
+      <%= render album %>
+    <% end %>
+    <%end%>
+  </div>
+</div>
+
+

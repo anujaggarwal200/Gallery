@@ -1,0 +1,66 @@
+<%= form_with model: album do |form| %>
+	<div class="row justify-content-center"> 
+    <div class="col-lg-4">
+		  <div>
+		    <%= form.label :name, class:"form-label" %><br>
+		    <%= form.text_field :name,class:"form-control" %><br>
+		    <% album.errors.full_messages_for(:name).each do |message| %>
+		      <div><%= message %></div>
+		    <% end %>
+		  </div>
+
+		  <div>
+		    <%= form.label :description, class:"form-label"  %><br>
+		    <%= form.text_area :description ,class:"form-control"  %><br>
+		    <% album.errors.full_messages_for(:description).each do |message| %>
+		      <div><%= message %></div>
+		    <% end %>
+		  </div>
+
+
+		  <div>
+		    <%= form.label :price, class:"form-label"  %><br>
+		    <%= form.text_field :price,class:"form-control"  %><br>
+		    <% album.errors.full_messages_for(:price).each do |message| %>
+		      <div><%= message %></div>
+		    <% end %>
+		  </div>
+
+		  <div>
+		    <%= form.label :tags, class:"form-label"  %><br>
+		    <%= form.text_field :all_tags,class:"form-control"  %><br>
+		    <% album.errors.full_messages_for(:all_tags).each do |message| %>
+		      <div><%= message %></div>
+		    <% end %>
+		  </div>
+
+		   <div>
+		    <%= form.label :cover_image, class:"form-label"  %><br>
+		    <%= form.file_field :cover_image ,class:"form-control"  %><br>
+		    <% album.errors.full_messages_for(:description).each do |message| %>
+		      <div><%= message %></div>
+		    <% end %>
+		  </div>
+
+		   <div>
+		    <%= form.label :image, class:"form-label"  %><br>
+		    <%= form.file_field :image ,multiple:true,class:"form-control"  %><br>
+		    <% album.errors.full_messages_for(:description).each do |message| %>
+		      <div><%= message %></div>
+		    <% end %>
+		  </div>
+
+		  <div class="field mb-2">
+            <%= form.check_box :publish %>
+            <%= form.label :published %>
+          </div>
+
+			<div class="text-center">
+		  	<%= form.submit "Create",class:"btn btn-success m-2"%>
+		  </div>
+	  </div>
+  </div>
+<% end %>
+<div class="text-center">
+	<%= link_to "Back to albums", albums_path , class:"btn btn-light m-2"%>
+</div>
